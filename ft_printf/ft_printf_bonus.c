@@ -1,27 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haincel <haincel@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/25 15:17:37 by haincel           #+#    #+#             */
-/*   Updated: 2026/08/26 19:17:18 by haincel          ###   ########.fr       */
+/*   Created: 2026/08/26 18:12:04 by haincel           #+#    #+#             */
+/*   Updated: 2026/08/26 19:27:53 by haincel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINT_H
+#include "ft_printf_bonus.h"
 
-#include <stdarg.h>
-#include <unistd.h>
+int	ft_printf(const char *type, ...)
+{
+	int		index;
+	int		len;
+	va_list	args;
+	t_flags	flags;
 
-int		ft_printf(const char *type, ...);
-int		ft_putchar_fd(char c, int fd);
-int		ft_putnbr_fd(int nb, int fd);
-int		ft_putstr_fd(char *s, int fd);
-int		ft_putptr_fd(unsigned long nb, int fd);
-int		ft_puthex_fd(unsigned int nb, int fd, char *base);
-int		ft_putnbr_unsigned_fd(unsigned int nb, int fd);
+	if (!type)
+		return (-1);
+	va_start(args, type);
+	index = 0;
+	len = 0;
+	while (type[index])
+	{
+		if (type[index] == '%')
+		{
+			index++;
+			
+		}
 
-#endif
+		else
+		{
+			write(1, &type[index], 1);
+			len++;
+		}
+		index++;
+	}
+	va_end(args);
+	return (len);
+}
