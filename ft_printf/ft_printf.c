@@ -6,7 +6,7 @@
 /*   By: haincel <haincel@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/26 19:29:22 by haincel           #+#    #+#             */
-/*   Updated: 2026/08/26 19:31:13 by haincel          ###   ########.fr       */
+/*   Updated: 2026/08/26 20:31:12 by haincel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_printf(const char *type, ...)
 	len = 0;
 	while (type[index])
 	{
-		if (type[index] == '%')
+		if (type[index] == '%' && type[index + 1])
 		{
 			index++;
 			len = len + check(type[index], args);
