@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: haincel <haincel@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/26 18:20:36 by haincel           #+#    #+#             */
-/*   Updated: 2026/08/26 18:20:37 by haincel          ###   ########.fr       */
+/*   Created: 2026/08/26 19:29:22 by haincel           #+#    #+#             */
+/*   Updated: 2026/08/26 20:31:12 by haincel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ int	check(char t, va_list args)
 	if (t == 'u')
 		return (ft_putnbr_unsigned_fd(va_arg(args, unsigned int), 1));
 	if (t == 'x')
-		return (ft_puthex_fd(va_arg(args, unsigned int), 1, "0123456789abcdef"));
+		return (ft_puthex_fd(va_arg(args, unsigned int),
+				1, "0123456789abcdef"));
 	if (t == 'X')
-		return (ft_puthex_fd(va_arg(args, unsigned int), 1, "0123456789ABCDEF"));
+		return (ft_puthex_fd(va_arg(args, unsigned int),
+				1, "0123456789ABCDEF"));
 	if (t == 'p')
 		return (ft_putptr_fd((unsigned long)va_arg(args, void *), 1));
 	if (t == '%')
@@ -46,7 +48,7 @@ int	ft_printf(const char *type, ...)
 	len = 0;
 	while (type[index])
 	{
-		if (type[index] == '%')
+		if (type[index] == '%' && type[index + 1])
 		{
 			index++;
 			len = len + check(type[index], args);

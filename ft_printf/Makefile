@@ -1,28 +1,22 @@
-NAME	=	libftprintf.a
+NAME = libftprintf.a
 
-SRC		=	ft_printf.c \
-			ft_printfstring.c \
-			ft_printfnumber.c \
-			ft_printfhex.c
+SRCS = ft_printf.c \
+	ft_print_string.c \
+	ft_print_number.c \
+	ft_print_hex.c
 
-BSRC	=	ft_printf_bonus.c \
-			ft_printf_bonus_utils
-
-OBJ	=		$(SRC:.c=.o)
-BOBJ	=	$(BSRC:.C=.O)
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 %.o: %.c
 	cc -Wall -Wextra -Werror -c $< -o $@
 
-$(NAME): $(OBJ)
-	ar -rcs $(NAME) $(OBJ)
-
-bonus:
+$(NAME): $(OBJS)
+	ar -rcs $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

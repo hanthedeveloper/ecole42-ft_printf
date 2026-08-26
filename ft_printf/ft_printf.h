@@ -6,15 +6,15 @@
 /*   By: haincel <haincel@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 15:17:37 by haincel           #+#    #+#             */
-/*   Updated: 2026/08/26 19:17:18 by haincel          ###   ########.fr       */
+/*   Updated: 2026/08/26 19:33:22 by haincel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
-# define FT_PRINT_H
+# define FT_PRINTF_H
 
-#include <stdarg.h>
-#include <unistd.h>
+# include <stdarg.h>
+# include <unistd.h>
 
 int		ft_printf(const char *type, ...);
 int		ft_putchar_fd(char c, int fd);
