@@ -1,6 +1,10 @@
 NAME = libftprintf.a
 
-SRCS = ft_printf.c ft_printfstring.c ft_printfnumber.c ft_printfhex.c
+SRCS = ft_printf.c \
+	ft_print_string.c \
+	ft_print_number.c \
+	ft_print_hex.c
+
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
