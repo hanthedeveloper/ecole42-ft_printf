@@ -31,6 +31,6 @@ int	ft_putptr_fd(unsigned long nb, int fd)
 	if (nb == 0)
 		return (ft_putstr_fd("(nil)", fd));
 	len += ft_putstr_fd("0x", fd);
-	len += ft_puthex_fd((unsigned int)nb, fd, "0123456789abcdef");
+	len += ft_puthex_fd((unsigned long)nb, fd, "0123456789abcdef");
 	return (len);
 }
