@@ -34,14 +34,14 @@ make fclean  # remove object files and libftprintf.a
 make re      # fclean + all
 ```
 
-To use the library in your projects, include the header and link against the archive:
+To use the library in your projects, include the header, write your main and link against the archive:
 
 ```c
 #include "ft_printf.h"
 ```
 
 ```sh
-cc main.c -L. -lftprintf -o main
+cc -Wall -Wextra -Werror main.c libftprintf.a -o main
 ```
 
 ## Supported Conversions
