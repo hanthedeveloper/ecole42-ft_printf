@@ -21,7 +21,7 @@ int		ft_putchar_fd(char c, int fd);
 int		ft_putnbr_fd(int nb, int fd);
 int		ft_putstr_fd(char *s, int fd);
 int		ft_putptr_fd(unsigned long nb, int fd);
-int		ft_puthex_fd(unsigned int nb, int fd, char *base);
+int		ft_puthex_fd(unsigned long nb, int fd, char *base);
 int		ft_putnbr_unsigned_fd(unsigned int nb, int fd);
 
 #endif
