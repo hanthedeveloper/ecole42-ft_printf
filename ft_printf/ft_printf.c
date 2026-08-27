@@ -37,28 +37,28 @@ int	check(char t, va_list args)
 
 int	ft_printf(const char *type, ...)
 {
-	int		index;
+	int		i;
 	int		len;
 	va_list	args;
 
 	if (!type)
 		return (-1);
 	va_start(args, type);
-	index = 0;
+	i = 0;
 	len = 0;
-	while (type[index])
+	while (type[i])
 	{
-		if (type[index] == '%' && type[index + 1])
+		if (type[i] == '%' && type[i + 1])
 		{
-			index++;
-			len = len + check(type[index], args);
+			i++;
+			len = len + check(type[i], args);
 		}
 		else
 		{
-			write(1, &type[index], 1);
+			write(1, &type[i], 1);
 			len++;
 		}
-		index++;
+		i++;
 	}
 	va_end(args);
 	return (len);
