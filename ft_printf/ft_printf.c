@@ -12,24 +12,24 @@
 
 #include "ft_printf.h"
 
-int	check(char t, va_list args)
+int	check(char t, va_list *args)
 {
 	if (t == 'c')
-		return (ft_putchar_fd((char)va_arg(args, int), 1));
+		return (ft_putchar_fd((char)va_arg(*args, int), 1));
 	if (t == 'd' || t == 'i')
-		return (ft_putnbr_fd(va_arg(args, int), 1));
+		return (ft_putnbr_fd(va_arg(*args, int), 1));
 	if (t == 's')
-		return (ft_putstr_fd(va_arg(args, char *), 1));
+		return (ft_putstr_fd(va_arg(*args, char *), 1));
 	if (t == 'u')
-		return (ft_putnbr_unsigned_fd(va_arg(args, unsigned int), 1));
+		return (ft_putnbr_unsigned_fd(va_arg(*args, unsigned int), 1));
 	if (t == 'x')
-		return (ft_puthex_fd(va_arg(args, unsigned int),
+		return (ft_puthex_fd(va_arg(*args, unsigned int),
 				1, "0123456789abcdef"));
 	if (t == 'X')
-		return (ft_puthex_fd(va_arg(args, unsigned int),
+		return (ft_puthex_fd(va_arg(*args, unsigned int),
 				1, "0123456789ABCDEF"));
 	if (t == 'p')
-		return (ft_putptr_fd((unsigned long)va_arg(args, void *), 1));
+		return (ft_putptr_fd((unsigned long)va_arg(*args, void *), 1));
 	if (t == '%')
 		return (ft_putchar_fd('%', 1));
 	return (0);
@@ -51,7 +51,7 @@ int	ft_printf(const char *type, ...)
 		if (type[i] == '%' && type[i + 1])
 		{
 			i++;
-			len = len + check(type[i], args);
+			len = len + check(type[i], &args);
 		}
 		else
 		{
