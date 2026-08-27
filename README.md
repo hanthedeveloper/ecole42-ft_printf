@@ -6,6 +6,16 @@
 
 `ft_printf` is a of the 42 core curriculum. The goal of this project is to recode the famous `printf()` function from the standard C library. It teaches you about variable arguments (`va_list`) and formatting output in C.
 
+## Algorithm and Data Structure
+
+The `ft_printf` implementation relies on a sequential parsing algorithm to process the format string:
+1. **Format Specifier Detection:** When a percent sign (`%`) is encountered, the algorithm inspects the subsequent character to identify the conversion specifier (`c`, `s`, `p`, `d`, `i`, `u`, `x`, `X`, `%`).
+2. **Variadic Argument Retrieval:** Using standard `<stdarg.h>` macros (`va_start`, `va_arg`, `va_end`), arguments are dynamically extracted matching their respective types.
+
+### Data Structure / Memory Management
+- **No Complex Data Structures:** The project does not require heavy data structures like trees or linked lists. Instead, it utilizes standard primitive types, a **stack-allocated `va_list`** pointer context to manage variable arguments sequentially.
+- **Recursion for Number Conversions:** Number and hexadecimal formatting functions use lightweight stack-based recursion to handle base conversions from most significant to least significant digits without allocating heap memory, ensuring zero memory leaks.
+
 ## Instructions
 
 Compile the library from the project root:
