@@ -9,7 +9,7 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c
+%.o: %.c ft_printf.h
 	cc -Wall -Wextra -Werror -c $< -o $@
 
 $(NAME): $(OBJS)
