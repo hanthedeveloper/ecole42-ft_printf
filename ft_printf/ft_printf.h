@@ -16,6 +16,8 @@
 # include <stdarg.h>
 # include <unistd.h>
 
+# define INT_MIN (-2147483647-1)
+
 int		ft_printf(const char *type, ...);
 int		ft_putchar_fd(char c, int fd);
 int		ft_putnbr_fd(int nb, int fd);
